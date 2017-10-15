@@ -93,6 +93,8 @@ public class OFChannelInitializer extends ChannelInitializer<Channel> {
 				ofBitmaps,
 				defaultFactory);
 
+		pipeline.addLast(new QKDCipherHandler());
+
 		if (keyStore != null && keyStorePassword != null) {
 			try {
 				/* Set up factories and stores. */
